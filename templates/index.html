@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Discover cutting-edge articles on technology, innovation, and modern lifestyle" />
+    <meta name="author" content="John Doe" />
+    <title>JOHN's Blog | Future-Focused Perspectives</title>
+    <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="static/css/styles.css" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #e52e71;
+            --dark-color: #1a1a2e;
+            --light-color: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f7;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .masthead {
+            height: 100vh;
+            min-height: 600px;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .masthead::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        
+        .site-heading {
+            text-align: center;
+            padding: 3rem;
+            border-radius: 15px;
+            position: relative;
+            z-index: 2;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .site-heading h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .site-heading .subheading {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .post-preview {
+            transition: all 0.4s ease;
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .post-preview:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .post-title {
+            font-size: 2rem;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .post-preview:hover .post-title {
+            color: var(--primary-color);
+        }
+        
+        .post-subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+        
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            color: #888;
+            font-size: 0.95rem;
+        }
+        
+        .post-meta img {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            border: 2px solid #eee;
+        }
+        
+        .badge-featured {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        
+        .featured-post {
+            border-left: 5px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        .featured-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 110, 253, 0.03);
+            z-index: -1;
+        }
+        
+        .newsletter-section {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background-color: white;
+            border-radius: 50px;
+            margin: 0.7rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eee;
+        }
+        
+        .category-badge:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(229, 46, 113, 0.3);
+            border-color: transparent;
+        }
+        
+        .btn-primary {
+            background: var(--primary-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: #0b5ed7;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+        
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .section-heading {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+        
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .site-heading h1 {
+                font-size: 2.5rem;
+            }
+            
+            .site-heading .subheading {
+                font-size: 1.2rem;
+            }
+            
+            .post-preview {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html" style="font-weight: 700; font-size: 1.5rem;">
+                <span style="color: var(--primary-color)">JOHN</span>'s Blog
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('static/assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Welcome to JOHN's Blog</h1>
+                        <span class="subheading">Exploring Technology, Innovation & Modern Life</span>
+                        <div class="mt-4">
+                            <a href="#posts" class="btn btn-primary btn-lg">Start Reading</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content-->
+    <div class="container px-4 px-lg-5" id="posts">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <!-- Featured Post -->
+                <div class="post-preview featured-post">
+                    <a href="post.html">
+                        <div class="badge-featured">FEATURED POST</div>
+                        <h2 class="post-title">The Productivity Paradox: Working Smarter, Not Harder</h2>
+                        <h3 class="post-subtitle">Discover how the most effective people achieve more by working less</h3>
+                    </a>
+                    <div class="post-meta">
+                        <img src="static/assets/img/author1.jpg" alt="Author">
+                        <span>Posted by Alex Johnson on June 15, 2025 · 8 min read</span>
+                    </div>
+                </div>
+                <hr class="my-4" />
+
+                <!-- Blog Posts -->
+                {% for blog_post in allposts %}
+                <div class="post-preview">
+                    <a href="{{ url_for('body_blog', id=blog_post['id']) }}">
+                        <h2 class="post-title">{{blog_post["title"]}}</h2>
+                        <h3 class="post-subtitle">{{blog_post["subtitle"]}}</h3>
+                    </a>
+                    <div class="post-meta">
+                        <img src="static/assets/img/author2.jpg" alt="Author">
+                        <span>Posted by {{blog_post.get('author', 'John')}} on {{blog_post.get('date', '2025')}} · 5 min read</span>
+                    </div>
+                </div>
+                <hr class="my-4" />
+                {% endfor %}
+
+                <!-- Newsletter Section -->
+                <div class="newsletter-section">
+                    <div class="newsletter-content">
+                        <h3>Join Our Newsletter</h3>
+                        <p>Get the latest articles and exclusive content delivered to your inbox</p>
+                        <div class="mt-4 d-flex flex-wrap justify-content-center">
+                            <input type="email" class="form-control" placeholder="Your email address" style="max-width: 400px; margin-right: 1rem;">
+                            <button class="btn btn-light">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories -->
+                <div class="text-center my-5">
+                    <h4 class="section-heading">Browse Categories</h4>
+                    <div>
+                        <a href="#" class="category-badge">Technology</a>
+                        <a href="#" class="category-badge">Web Development</a>
+                        <a href="#" class="category-badge">Productivity</a>
+                        <a href="#" class="category-badge">Design</a>
+                        <a href="#" class="category-badge">Career Growth</a>
+                    </div>
+                </div>
+
+                <!-- Pager-->
+                <div class="d-flex justify-content-between mb-5">
+                    <a class="btn btn-outline-primary text-uppercase" href="#!">← Newer Posts</a>
+                    <a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-->
+    <footer class="footer">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="text-center mb-5">
+                        <a href="#!" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#!" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#!" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#!" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="small text-center text-muted">
+                        &copy; 2025 JOHN's Blog. All rights reserved.
+                        <div class="mt-2">
+                            <a href="privacy.html" class="text-muted">Privacy Policy</a> | 
+                            <a href="terms.html" class="text-muted">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="static/js/scripts.js"></script>
+</body>
+</html>
